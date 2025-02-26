@@ -12,7 +12,7 @@ public class DeadlineTask extends Task {
     }
     public DeadlineTask(){
         super(); 
-        this.reminder = LocalTime.of(0, 30);
+        this.reminder = LocalTime.of(0, 10);
         this.reminderFrequency = 1;
     }
     public DeadlineTask(DeadlineTask deadlineTask){
