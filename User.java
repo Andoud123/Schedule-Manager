@@ -1,17 +1,21 @@
+import java.util.regex.Pattern;
+
 public class User { 
+    private static final String USERNAME_REGEX ="^.{5,}$";
     private static final String PASSWORD_REGEX = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$";
+    private static final String PHONENUMBER_REGEX = "^\\+961 (3|70|71|76|78|81)/\\d{6}$";
     private String username; 
     private String password; 
     private String phoneNumber;
 
     public User(String username, String password, String phoneNumber) {
         this.username = username; 
-        setPassword(password); 
+        this.password = password; 
         this.phoneNumber = phoneNumber; 
     }
     public User() { 
         this.username = "username"; 
-        this.password = "pa$$word"; 
+        this.password = "password"; 
         this.phoneNumber = " ";
     }
     public User (User user){ 
@@ -21,14 +25,10 @@ public class User {
         this.username = username;
     }
     public void setPassword(String password) { 
-        if (password.matches(PASSWORD_REGEX)) { 
-            this.password = password;
-        } else {
-            System.out.println("Invalid password. Password must contain at least one lowercase letter, one uppercase letter, one digit, and be at least 8 characters long.");
-        }
+        this.password = password; 
     }
     public void setPhoneNumber(String phoneNumber) { 
-        this.phoneNumber = phoneNumber;
+        this.phoneNumber = phoneNumber; 
     }
     public String getUsername() {
 		return username;
@@ -38,5 +38,14 @@ public class User {
     }
     public String getPhoneNumber(){ 
         return phoneNumber;
+    }
+    public boolean isValidUsername(){
+        return Pattern.matches(USERNAME_REGEX, username);
+    }
+    public boolean isValidPassword(){
+         return Pattern.matches(PASSWORD_REGEX, password);
+    }
+    public boolean isValidPhoneNumber(){
+        return Pattern.matches(PHONENUMBER_REGEX, phoneNumber);
     }
 }
