@@ -16,9 +16,9 @@ Instructions:
 User Class: 
 
 Fundamental component of the Task Management System. It represents a user in the system and manages their personal information, such as username, password, and phone number. Here’s a brief explanation of its key features:
--	username: An Identifier for each user. 
+-	username: An Identifier for each user, passes through a username validation process.
 -	password: User password, passing through a password validation process to meet specific security reinforcements. 
--	phoneNumber: User phone number.
+-	phoneNumber: User phone number, passes through a phone number validation process. 
 
 Task Abstract Class: 
 
