@@ -29,8 +29,8 @@ The task class is an abstract class that serves as the foundation for all types 
 -	endDateTime: The date and time when the task ends. 
 -	displayTaskDetails(): Display the details of a specified task. 
 -	timeUntilStart(): returns the time remaining until the start of the task. 
--	getDuration(): Calculates and returns the duration of the task. 
--	 
+-	getDuration(): Calculates and returns the duration of the task.
+  
 RepeatedTask Class extends Task:
 
 The RepeatedTask class is a subclass of the Task class, it represents the tasks that happen repeatedly at a specified frequency.  It extends the functionality of the base Task class by adding attributes and methods specific to repeated tasks. Here’s a brief explanation of its key features:
