@@ -36,19 +36,28 @@ public class RepeatedTask extends Task{
             long days = duration.toDays();
             long hours = duration.toHours() % 24;
             long minutes = duration.toMinutes() % 60;
-            String result = "Time until start: " + days + " days, " + hours + " hours, " + minutes + " minutes";
-        return result; }
+            String result = days + " days, " + hours + " hours, " + minutes + " minutes";
+            return result; 
+            }
         }
-        public Duration getDuration(){
-            return Duration.between(startDateTime, endDateTime);
+        public String getDuration() {
+            Duration duration = Duration.between(startDateTime, endDateTime);
+            
+            long hours = duration.toHours();
+            long minutes = duration.toMinutes() % 60; 
+            long seconds = duration.getSeconds() % 60; 
+        
+            return String.format("%d hours, %d minutes, %d seconds", hours, minutes, seconds);
         }
-        public void displayTaskDetails(){
-            System.out.println("Repeated Task: " + title);
-            System.out.println("Description: " + description);
-            System.out.println("Frequency " + frequency);
-            System.out.println("Start: " + startDateTime + " | End: " + endDateTime);
-            System.out.println("You will be reminded before 30 minutes.");
-            System.out.println("The duration of your task is: " + getDuration());
+        public String displayTaskDetails(String title, LocalDateTime startDateTime) {
+            return "Repeated Task: " + title + "\n"
+                 + "Description: " + description + "\n"
+                 + "Frequency: " + frequency + "\n"
+                 + "Start: " + startDateTime + " | End: " + endDateTime + "\n"
+                 + "You will be reminded before 30 minutes.\n"
+                 + "The duration of your task is: " + getDuration()+ "\n"
+                 + "Your task will start in: " + timeUntilStart();
         }
+        
     }
 
