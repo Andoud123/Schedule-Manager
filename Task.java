@@ -1,4 +1,3 @@
-import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 public abstract class Task { 
@@ -50,7 +49,7 @@ public abstract class Task {
             return endDateTime;
         }
 
-        public abstract void displayTaskDetails();
+        public abstract String displayTaskDetails(String title, LocalDateTime startDateTime);
         public abstract String timeUntilStart();
-        public abstract Duration getDuration();
+        public abstract String getDuration();
 }
